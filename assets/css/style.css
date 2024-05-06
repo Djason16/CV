@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.header {
+    width: 100%;
+    min-height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 3, 52);
+}
+
+.title {
+    font-size: 25px;
+    color: white;
+    position: relative;
+    right: -10px; /* Décalage vers la gauche pour roder le texte */
+    padding-right: 2px; /* Ajouter un padding à droite */
+    text-shadow: -3px -3px 0 rgb(255, 3, 52),  
+                 3px -1px 0 rgb(255, 3, 52),
+                -3px 1px 0 rgb(255, 3, 52),
+                 3px 1px 0 rgb(255, 3, 52); /* Contour rouge avec text-shadow */
+}
+
+.navbar {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fake-code {
+    display: flex;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#date {
+    color: rgb(9, 202, 129);
+}
+
+@media screen and (max-width: 768px) {
+    .fake-code {
+        overflow: hidden; /* Cacher le texte débordant sur les petits écrans */
+    }
+}
