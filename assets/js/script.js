@@ -1,3 +1,25 @@
+const header = document.querySelector('.header');
+const trait = header.querySelector('::after');
+
+let currentThickness = 4; // Épaisseur initiale du trait en pixels
+const reduceInterval = 100; // Intervalle de réduction en millisecondes
+
+function reduceThickness() {
+    if (currentThickness > 0) {
+        currentThickness--; // Réduire l'épaisseur du trait
+        trait.style.height = `${currentThickness}px`; // Mettre à jour la hauteur du trait
+    }
+}
+
+// Réduire progressivement l'épaisseur du trait à intervalles réguliers
+const intervalId = setInterval(reduceThickness, reduceInterval);
+
+// Arrêter l'intervalle lorsque l'épaisseur du trait atteint 0
+if (currentThickness === 0) {
+    clearInterval(intervalId);
+}
+
+
 // Sélection de l'élément où afficher le mois et l'année
 const dateDisplayElement = document.getElementById('date');
 
@@ -21,3 +43,57 @@ function displayMonthAndYear() {
 
 // Appeler la fonction une première fois pour afficher le mois et l'année au chargement de la page
 document.addEventListener('DOMContentLoaded', displayMonthAndYear);
+
+// Fonction pour charger la vidéo YouTube en plein écran et ajuster le conteneur
+function loadYouTubeVideo() {
+    const videoId = 'qnz5XWxWeJg'; // Remplacez ceci par l'ID de votre vidéo YouTube
+
+    // Création de l'URL avec les paramètres de lecture en qualité 4K
+    const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&loop=1&rel=0&modestbranding=1&playlist=${videoId}&mute=1&vq=hd2160`;
+
+    // Création de l'élément iframe pour la vidéo YouTube
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', videoUrl);
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'autoplay; encrypted-media');
+    iframe.setAttribute('allowfullscreen', '');
+
+    // Ajouter l'iframe au conteneur spécifié
+    const videoContainer = document.getElementById('youtube-video');
+    videoContainer.appendChild(iframe);
+}
+
+// Appeler la fonction pour charger la vidéo au chargement de la page
+window.onload = function () {
+    loadYouTubeVideo();
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".button");
+    const pages = document.querySelectorAll(".page");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function() {
+            const target = button.getAttribute("data-target");
+            const targetPage = document.getElementById(target + "Page");
+
+            // Réinitialiser tous les conteneurs de page
+            pages.forEach(page => {
+                if (page !== targetPage) {
+                    page.classList.remove("active");
+                    page.classList.remove("blur-hidden-content");
+                }
+            });
+
+            // Activer la page ciblée ou désactiver si déjà active
+            targetPage.classList.toggle("active");
+
+            // Appliquer l'effet de flou sur le contenu masqué
+            pages.forEach(page => {
+                if (page !== targetPage && page.classList.contains("active")) {
+                    page.classList.add("blur-hidden-content");
+                }
+            });
+        });
+    });
+});

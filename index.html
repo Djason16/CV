@@ -7,32 +7,82 @@
     <title>Djason CHERY</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
-    <nav class="header">
-        <div class="navbar">
-            <div class="title" style="color: rgb(37, 37, 37);">DC.WT</div>
-            <div class="fake-code">
-                &nbsp;&nbsp;&nbsp;
-                <span style="color: white;">x</span>
-                <span style="color: rgb(255, 3, 52);">datetime.date:</span>
-                <div id="date"></div>
-                &nbsp;
-                <span style="color: white;">x</span>
-                &nbsp;
-                <span style="color: rgb(255, 3, 52);">a=</span>
-                <span style="color: rgb(11, 160, 207);">Redday</span>
-                <span style="color: rgb(255, 3, 52);">_</span>
-                <span style="color: white;">Agency x</span>
-                &nbsp;
-                <span style="color: rgb(255, 3, 52);">class event:name = "</span>
-                <span style="color: rgb(16, 97, 165);">MTS TTC</span>
-                <span style="color: rgb(255, 3, 52);">"def setName(self, passedValue): print (result) #?</span>
-                <script src="assets/js/script.js"></script>
+
+    <header>
+
+        <nav class="header">
+            <div class="navbar">
+                <div class="title" style="color: rgb(37, 37, 37);">DC.WT</div>
+                <div class="fake-code">
+                    &nbsp;&nbsp;&nbsp;
+                    <span style="color: white;">x</span>
+                    <span style="color: rgb(255, 3, 52);">datetime.date:</span>
+                    <div id="date"></div>
+                    &nbsp;
+                    <span style="color: white;">x</span>
+                    &nbsp;
+                    <span style="color: rgb(255, 3, 52);">a=</span>
+                    <span style="color: rgb(11, 160, 207);">Redday</span>
+                    <span style="color: rgb(255, 3, 52);">_</span>
+                    <span style="color: white;">Agency x</span>
+                    &nbsp;
+                    <span style="color: rgb(255, 3, 52);">class event:name = "</span>
+                    <span style="color: rgb(16, 97, 165);">MTS TTC</span>
+                    <span style="color: rgb(255, 3, 52);">"def setName(self, passedValue): print (result) #?</span>
+                    <script src="assets/js/script.js"></script>
+                </div>
+            </div>
+        </nav>
+        <div class="mainvideo">
+            <div id="youtube-video"></div>
+        </div>
+
+        <div class="buttons-container" id="buttonsContainer">
+            <button class="button" data-target="cv">Curriculum Vitae</button>
+            <button class="button" data-target="services">Mes services</button>
+            <br>
+            <button class="button" data-target="about">À-propos ?</button>
+            <button class="button" data-target="contact">Contact</button>
+        </div>
+
+        <div class="content-container" id="contentContainer">
+            <div id="cvPage" class="page hidden">
+                <!-- Contenu de la page CV -->
+                <h2>Mon CV</h2>
+                <p>Contenu du CV...</p>
+            </div>
+            <div id="servicesPage" class="page hidden">
+                <!-- Contenu de la page Mes services -->
+                <h2>Mes Services</h2>
+                <p>Contenu de mes services...</p>
+            </div>
+            <div id="aboutPage" class="page hidden">
+                <!-- Contenu de la page À propos -->
+                <h2>À Propos</h2>
+                <p>À propos de moi...</p>
+            </div>
+            <div id="contactPage" class="page hidden">
+                <!-- Contenu de la page Contact -->
+                <h2>Contact</h2>
+                <p>Informations de contact...</p>
             </div>
         </div>
-    </nav>
+
+        <footer class="footer">
+            <div class="iconfooter"><ion-icon name="code-slash-outline"></ion-icon></div>
+            
+            <div class="textfooter">class&nbsp;
+                <span class="specialfootertext">About_prj</span>
+                : atribute = "descrition"
+            </div>
+        </footer>
+    </header>
+
 </body>
 
 </html>
