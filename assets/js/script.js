@@ -71,6 +71,7 @@ window.onload = function () {
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".button");
     const pages = document.querySelectorAll(".page");
+    const closeButtons = document.querySelectorAll(".closeButton");
 
     buttons.forEach(button => {
         button.addEventListener("click", function() {
@@ -81,19 +82,47 @@ document.addEventListener("DOMContentLoaded", function() {
             pages.forEach(page => {
                 if (page !== targetPage) {
                     page.classList.remove("active");
-                    page.classList.remove("blur-hidden-content");
                 }
             });
 
             // Activer la page ciblée ou désactiver si déjà active
             targetPage.classList.toggle("active");
-
-            // Appliquer l'effet de flou sur le contenu masqué
-            pages.forEach(page => {
-                if (page !== targetPage && page.classList.contains("active")) {
-                    page.classList.add("blur-hidden-content");
-                }
-            });
         });
+    });
+
+    // Fermer la page correspondante lorsqu'on clique sur le bouton de fermeture
+    closeButtons.forEach(closeButton => {
+        closeButton.addEventListener("click", function() {
+            const target = closeButton.getAttribute("data-target");
+            const targetPage = document.getElementById(target + "Page");
+
+            // Désactiver la page correspondante
+            targetPage.classList.remove("active");
+        });
+    });
+
+    // Fermer tout contenu caché lorsqu'un clic est effectué n'importe où sur la page
+    document.addEventListener("click", function(event) {
+        const isPageContentClicked = event.target.closest(".page") !== null;
+        const isButtonClicked = event.target.closest(".button") !== null;
+
+        // Si le clic n'est pas sur le contenu caché ni sur un bouton, désactiver tout contenu caché
+        if (!isPageContentClicked && !isButtonClicked) {
+            pages.forEach(page => {
+                page.classList.remove("active");
+            });
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(page => {
+        // Obtenez la hauteur du contenu de chaque page
+        const contentHeight = page.scrollHeight;
+        
+        // Définissez la largeur du scroll en fonction de la hauteur du contenu
+        page.style.scrollbarWidth = contentHeight > window.innerHeight ? "10px" : "5px";
     });
 });
